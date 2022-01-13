@@ -7,6 +7,7 @@ create table jobs(
     job_id serial primary key,
     company varchar(255),
     position varchar(255),
+    position_type varchar(255),
     typical_pay int,
     location varchar(255),
     application_link varchar(500),

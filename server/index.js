@@ -39,7 +39,8 @@ app.post("/apply", async(req,res)=>{
         const location =  req.body.location;
         const application_link =  req.body.application_link;
         const logo_link =  req.body.logo_link;
-        const newJob = await pool.query("INSERT INTO jobs (company, position, typical_pay, location, application_link, logo_link) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [company, position, typical_pay, location, application_link, logo_link]);
+        const position_type =  req.body.position_type;
+        const newJob = await pool.query("INSERT INTO jobs (company, position, position_type, typical_pay, location, application_link, logo_link) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [company, position, position_type, typical_pay, location, application_link, logo_link]);
         res.json(newJob);
     } catch(err){
         console.error(err.message);
